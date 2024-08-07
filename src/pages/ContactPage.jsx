@@ -13,14 +13,19 @@ function ContactPage() {
         items: []
       }
     });
+
+    // Verifique se a inicialização foi bem-sucedida
+    console.log('Data layer inicializada:', window.dataLayer);
   }, []);
 
   // Função para simular a compra de um produto
   const handlePurchase = (productName, productPrice) => {
+    console.log(`Iniciando compra: ${productName}, preço: ${productPrice}`); // Adicione isso para depuração
+
     window.dataLayer.push({
       event: 'purchase',
       ecommerce: {
-        transaction_id: 'T12345', // ID da transação
+        transaction_id: 'T12345', // ID da transação (você pode gerar um ID único para cada transação)
         affiliation: 'Online Store',
         value: productPrice, // Receita da transação
         tax: 1.29,
@@ -29,7 +34,7 @@ function ContactPage() {
         coupon: 'SUMMER_SALE',
         items: [{
           item_name: productName,
-          item_id: 'P12345',
+          item_id: 'P12345', // ID do item (você pode gerar um ID único para cada item)
           price: productPrice,
           item_brand: 'BrandName',
           item_category: 'Category',
@@ -38,6 +43,10 @@ function ContactPage() {
         }]
       }
     });
+
+    // Verifique se o evento foi enviado corretamente
+    console.log('Data layer após compra:', window.dataLayer);
+
     alert(`Compra do produto ${productName} realizada com sucesso!`);
   };
 
