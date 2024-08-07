@@ -32,7 +32,7 @@ const Hero = () => {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Check the inspect tab (F12) to watch it working :D
+            Check the inspect tab (F12) to watch it workinggg :D
           </Text>
           <Stack
             direction={'column'}

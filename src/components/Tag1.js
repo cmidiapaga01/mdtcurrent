@@ -61,7 +61,7 @@ const Tag1 = () => {
           >
             <animated.div className={styles.fill} style={props} />
             <animated.div className={styles.content}>
-              {props.width.to(x => (x === 0 ? 'Start' : x === 200 ? 'Finish' : ''))}
+              {props.width.to(x => (x === 0 ? 'Starttt' : x === 200 ? 'Finish' : ''))}
             </animated.div>
           </Button>
         </Box>
