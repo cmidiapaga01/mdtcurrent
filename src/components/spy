@@ -1,0 +1,113 @@
+// import React, { useState } from 'react';
+// import ModalGtm from './ModalGtm'; // Ajuste o caminho conforme necessário
+
+// const PurchaseButton = () => {
+//   const product = {
+//     id: 'prod123',
+//     name: 'Camiseta React',
+//     price: 29.99,
+//     category: 'Vestuário',
+//     currency: 'USD', // Adicionado a moeda da transação
+//   };
+
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const [purchaseData, setPurchaseData] = useState({});
+
+//   const handlePurchase = () => {
+//     // Estrutura de dados atualizada para o dataLayer, incluindo "value" e "currency"
+//     const data = {
+//       event: 'purchase',
+//       ecommerce: {
+//         currency: product.currency, // Moeda da transação
+//         value: product.price, // Valor da transação 
+//         items: [{ // "items" conforme o modelo do GA4
+//           item_name: product.name, // Nome do produto
+//           item_id: product.id, // ID do produto
+//           price: product.price, // Preço do produto
+//           item_category: product.category, // Categoria do produto
+//           quantity: 1, // Quantidade comprada
+//         }]
+//       },
+//       transactionId: `TX${Math.floor(Math.random() * 900000) + 100000}`,
+//       paymentMethod: 'Cartão de Crédito',
+//       customerType: 'Novo Cliente',
+//       purchaseDate: new Date().toISOString(),
+//       pageUrl: window.location.href,
+//       referrer: document.referrer
+//     };
+
+//     window.dataLayer = window.dataLayer || [];
+//     window.dataLayer.push(data);
+
+//     setPurchaseData(data); // Atualiza os dados da compra para passar ao modal
+//     setIsModalOpen(true); // Abre o modal após a compra
+//   };
+
+//   return (
+//     <>
+//       <button onClick={handlePurchase}>
+//         Comprar {product.name} por R${product.price.toFixed(2)}
+//       </button>
+//       <ModalGtm isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} data={purchaseData} />
+//     </>
+//   );
+// };
+
+// export default PurchaseButton;
+
+
+// import React from 'react';
+
+// // Componente ModalGtm
+// const ModalGtm = ({ isOpen, closeModal, data }) => {
+//   if (!isOpen) return null;
+
+//   return (
+//     <div style={{
+//       position: 'fixed',
+//       top: 0,
+//       left: 0,
+//       right: 0,
+//       bottom: 0,
+//       backgroundColor: 'rgba(0, 0, 0, 0.7)',
+//       display: 'flex',
+//       alignItems: 'center',
+//       justifyContent: 'center',
+//       zIndex: 1000,
+//     }}>
+//       <div style={{
+//         backgroundColor: '#1e1e1e',
+//         padding: '20px',
+//         borderRadius: '8px',
+//         display: 'flex',
+//         flexDirection: 'column',
+//         gap: '10px',
+//       }}>
+//         <h2 style={{ color: '#fff' }}>Detalhes da Compra</h2>
+//         {/* Estilização da caixa de código com fundo preto e texto branco */}
+//         <pre style={{
+//           color: '#dcdcdc',
+//           backgroundColor: '#1e1e1e',
+//           border: '1px solid #ccc',
+//           borderRadius: '5px',
+//           padding: '10px',
+//           maxWidth: '600px',
+//           overflowX: 'auto',
+//         }}>
+//           {JSON.stringify(data, null, 2)}
+//         </pre>
+//         <button onClick={closeModal} style={{
+//           marginTop: '20px',
+//           backgroundColor: '#dcdcdc',
+//           color: '#1e1e1e',
+//           padding: '10px 20px',
+//           border: 'none',
+//           borderRadius: '5px',
+//           cursor: 'pointer',
+//         }}>Fechar</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ModalGtm;
