@@ -1,35 +1,40 @@
 // HomePage.jsx
-import React from 'react';
-import { Box } from '@chakra-ui/react';
-import Hero from '../components/Hero';
-import Tag from '../components/Tag/Tag';
-import Container from '../components/Container';
-import SkillsSection from '../components/SkillsSection';
+import React from "react";
+import { Box } from "@chakra-ui/react";
+import Hero from "../components/Hero";
+import Tag from "../components/Tag/Tag";
+import Container from "../components/Container";
+import SkillsSection from "../components/SkillsSection";
 
 function HomePage() {
   return (
     <Box minH="100vh">
-      <Box bg="blue.200">
+      {/* <Box bg="blue.200"> */}
+      <Box bgGradient="linear(to-b, #24243e, #302b63, #3b356e)" paddingTop={16}>
         <Container>
           <Hero />
         </Container>
       </Box>
-      <Box bg="green.200">
+      <Box 
+      // bg="green.200"
+      bgGradient="linear-gradient(to bottom, #9d1dba, #62286f, #2e1434)"
+      >
         <Container>
-          <Tag id={1} paddingTop='4rem' /> {/* Rendering the Tag component with id 1 */}
+          <Tag id={1} paddingTop="4rem" />{" "}
+          {/* Rendering the Tag component with id 1 */}
           <Tag id={2} /> {/* Rendering the Tag component with id 2 */}
-          <Tag id={3} paddingBottom='4rem'  /> {/* Rendering the Tag component with id 3 */}
+          <Tag id={3} paddingBottom="4rem" />{" "}
+          {/* Rendering the Tag component with id 3 */}
         </Container>
       </Box>
-      <SkillsSection />
+      <Container>
+        <SkillsSection />
+      </Container>
     </Box>
   );
 }
 
-
 export default HomePage;
-
-
 
 // import React from 'react';
 // import { Box, Heading, Text, Flex, Button } from '@chakra-ui/react';

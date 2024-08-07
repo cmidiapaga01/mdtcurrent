@@ -5,7 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <Box py="4" bg="gray.500" color="white">
+    <Box py="4" 
+    // bg="gray.500"
+     color="white">
       <Flex maxW="container.xl" mx="auto" alignItems="center" justifyContent="center">
         <Link as={RouterLink} to="/" mr="4">
           Home

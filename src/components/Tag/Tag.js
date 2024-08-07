@@ -47,7 +47,9 @@ const Tag = ({id, paddingTop, paddingBottom}) => {
   const tag = TagData.find(tag => tag.id === id);
 
   return (
-    <Box backgroundColor="gray.200" id={`tag${id}Section`} display="flex" justifyContent="center" paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Box 
+    // backgroundColor="gray.200" 
+    id={`tag${id}Section`} display="flex" justifyContent="center" paddingTop={paddingTop} paddingBottom={paddingBottom}>
       <Box key={`tag${id}`} maxW="sm" backgroundColor="gray.50" borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="md" m="7">
         <Box textAlign="center" display="flex" justifyContent="center">
           <Image src={tag.imageSrcCard} alt="Tag Image" maxWidth="60%" marginTop={12} />

@@ -23,7 +23,7 @@ function App() {
         <Box minH="100vh">
           <Box bg="gray.300">
             <Container>
-              <Navbar />
+              <Navbar position="fixed"/>
             </Container>
           </Box>
           <Routes>
@@ -32,7 +32,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             {/* Add other routes here */}
           </Routes>
-          <Box bg="gray.100">
+          <Box 
+          // bg="gray.100"
+          bg="#252441">
             <Container>
               <Footer />
             </Container>

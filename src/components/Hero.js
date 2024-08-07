@@ -25,9 +25,12 @@ const Hero = () => {
           <Heading
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
+            lineHeight={'110%'}
+            color="#ffffff">
             Fire the <br />
-            <Text as={'span'} color={'green.400'}>
+            <Text as={'span'} 
+            // color={'green.400'}
+             color="#ce21f6">
               tag game!
             </Text>
           </Heading>
@@ -43,11 +46,13 @@ const Hero = () => {
             <ScrollLink to="tag1Section" smooth={true} duration={500}>
   <Button
     colorScheme={'green'}
-    bg={'green.400'}
+    // bg={'green.400'}
+    bg="#ce21f6"
     rounded={'full'}
     px={6}
     _hover={{
-      bg: 'green.500',
+      // bg: 'green.500',
+      bg: "#ab16cd"
     }}>
     Get Started
   </Button>
@@ -58,7 +63,8 @@ const Hero = () => {
             <Box>
               <Icon
                 as={Arrow}
-                color={useColorModeValue('gray.800', 'gray.300')}
+                // color={useColorModeValue('gray.800', 'gray.300')}
+                color="#ffffff"
                 w={71}
                 position={'absolute'}
                 right={-71}
@@ -70,7 +76,8 @@ const Hero = () => {
                 position={'absolute'}
                 right={'-125px'}
                 top={'-15px'}
-                transform={'rotate(10deg)'}>
+                transform={'rotate(10deg)'}
+                color="#ffffff">
                 Starting at $15/mo
               </Text>
             </Box>
