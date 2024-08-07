@@ -26,13 +26,13 @@ const Hero = () => {
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Make money from <br />
+            Fire the <br />
             <Text as={'span'} color={'green.400'}>
-              your audience
+              tag game!
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Monetize your content by charging your most loyal readers and reward them loyalty points. Give back to your loyal readers by granting them access to your pre-releases and sneak-peaks.
+            Check the inspect tab (F12) to watch it working :D
           </Text>
           <Stack
             direction={'column'}
@@ -52,9 +52,9 @@ const Hero = () => {
     Get Started
   </Button>
 </ScrollLink>
-            <Box variant={'link'} colorScheme={'blue'} size={'sm'} style={{ marginTop: '10px', color: 'blue.500', cursor: 'pointer', textDecoration: 'underline' }}>
+            {/* <Box variant={'link'} colorScheme={'blue'} size={'sm'} style={{ marginTop: '10px', color: 'blue.500', cursor: 'pointer', textDecoration: 'underline' }}>
               Learn more
-            </Box>
+            </Box> */}
             <Box>
               <Icon
                 as={Arrow}

@@ -1,16 +1,24 @@
 import React from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
+import { Link, Box, Flex, Button, Stack } from "@chakra-ui/react";
+import logo from '../images/mhat.png'; // Certifique-se de alterar para o caminho correto da sua imagem
 
 const Navbar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleLogoClick = () => {
+    window.location.reload(); // Recarrega a página
+  };
+
   return (
     <NavBarContainer {...props}>
-      <Text w="100px" color={"black"}>
-        Teste
-      </Text>
+      <img
+        src={logo}
+        alt="Logo"
+        style={{ width: "40px", cursor: "pointer" }}
+        onClick={handleLogoClick}
+      />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>
@@ -50,9 +58,18 @@ const MenuToggle = ({ toggle, isOpen }) => {
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
     <Link href={to}>
-      <Text display="block" {...rest}>
+      <Button
+        size="sm"
+        rounded="md"
+        color={"black"}
+        bg={"white"}
+        _hover={{
+          bg: ["gray.100"]
+        }}
+        {...rest}
+      >
         {children}
-      </Text>
+      </Button>
     </Link>
   );
 };
@@ -60,21 +77,19 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 const MenuLinks = ({ isOpen }) => {
   return (
     <Box
-    display={{ base: isOpen ? "block" : "none", md: "block" }}
-    position={{ base: "absolute", md: "static" }}
-    top="100%" // Place the menu below the navbar
-    left="0"
-    // bg="white"
-    w={{ base: "100%", md: "auto" }}
-    m={0}
-    // mt={{ base: "0", md: "4" }} // Add margin top to prevent overlapping
-    pt={{ base: "2", md: "4" }} // Add padding to the menu items
-    pb={5}
-    px={8}
-    pe={{ base: "8", lg: "0" }}
-    zIndex="99" // Ensure menu is above other content    
-    bg={{ base: "rgba(255, 255, 255, 0.85)", md: "none" }} // Semi-transparent white background
-    backdropFilter={{ base: "blur(10px)", md: "none" }}
+      display={{ base: isOpen ? "block" : "none", md: "block" }}
+      position={{ base: "absolute", md: "static" }}
+      top="100%" // Place the menu below the navbar
+      left="0"
+      w={{ base: "100%", md: "auto" }}
+      m={0}
+      pt={{ base: "2", md: "4" }} // Add padding to the menu items
+      pb={5}
+      px={8}
+      pe={{ base: "8", lg: "0" }}
+      zIndex="99" // Ensure menu is above other content
+      bg={{ base: "rgba(255, 255, 255, 0.85)", md: "none" }} // Semi-transparent white background
+      backdropFilter={{ base: "blur(10px)", md: "none" }}
     >
       <Stack
         spacing={8}
@@ -83,22 +98,8 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/how">How It works </MenuItem>
-        <MenuItem to="/faetures">Features </MenuItem>
-        <MenuItem to="/pricing">Pricing </MenuItem>
-        <MenuItem to="/signup" isLast>
-          <Button
-            size="sm"
-            rounded="md"
-            color={"black"}
-            bg={"white"}
-            _hover={{
-              bg: ["gray.100"]
-            }}
-          >
-            Create Account
-          </Button>
+        <MenuItem to="/" isLast>
+          Restart
         </MenuItem>
       </Stack>
     </Box>
@@ -114,13 +115,10 @@ const NavBarContainer = ({ children, ...props }) => {
       wrap="wrap"
       w="100%"
       maxW="container.xl"
-      // position="fixed" // Add position fixed here
-      // top="0" // Stick the navbar to the top of the viewport
       zIndex="100"
-      // mb={8}
       p={[6, 8, 6, 6]}
       bg="rgba(255, 255, 255, 0.5)"
-      backdropFilter="blur(20px)" 
+      backdropFilter="blur(20px)"
       color={"black"}
       {...props}
     >
