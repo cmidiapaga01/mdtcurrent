@@ -20,12 +20,15 @@ function HomePage() {
 
   // Função para simular a compra de um produto
   const handlePurchase = (productName, productPrice) => {
-    console.log(`Iniciando compra: ${productName}, preço: ${productPrice}`); // Adicione isso para depuração
+    // Gera um ID único para a transação baseado no timestamp
+    const transactionId = `T${new Date().getTime()}`;
+    
+    console.log(`Iniciando compra: ${productName}, preço: ${productPrice}, ID da transação: ${transactionId}`); // Adicione isso para depuração
 
     window.dataLayer.push({
       event: 'purchase',
       ecommerce: {
-        transaction_id: 'T12345', // ID da transação (você pode gerar um ID único para cada transação)
+        transaction_id: transactionId, // ID da transação único
         affiliation: 'Online Store',
         value: productPrice, // Receita da transação
         tax: 1.29,
@@ -34,7 +37,7 @@ function HomePage() {
         coupon: 'SUMMER_SALE',
         items: [{
           item_name: productName,
-          item_id: 'P12345', // ID do item (você pode gerar um ID único para cada item)
+          item_id: `P${Math.random()}`, // ID do item único
           price: productPrice,
           item_brand: 'BrandName',
           item_category: 'Category',
@@ -54,8 +57,10 @@ function HomePage() {
     <Box minH="100vh">
       <Container>
         <Button onClick={() => handlePurchase('Produto 1', 100)} colorScheme="blue" m={4}>
-          Comprar Produto 1
+          Compra Produto 1
         </Button>
+      </Container>
+      <Container>
         <Button onClick={() => handlePurchase('Produto 2', 200)} colorScheme="green" m={4}>
           Comprar Produto 2
         </Button>
